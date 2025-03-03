@@ -1,0 +1,9 @@
+django
+django-multiselectfield
+pandas
+numpy
+django-widgets-improved
+scikit-learn
+joblib
+lightgbm
+python-dotenv

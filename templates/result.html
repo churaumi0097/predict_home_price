@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div id="result">
+    <div class="result-wrapper">
+        <div class="result-container">
+            <h2 class="result-title">予測結果</h2>
+            <div class="result-content">
+                <p><strong>地区:</strong> {{ post.area }}</p>
+                <p><strong>階数:</strong> {{ post.floor_num }}</p>
+                <p><strong>建物の階数:</strong> {{ post.all_floor_num }}</p>
+                <p><strong>間取り:</strong> {{ post.floor_plan }}</p>
+                <p><strong>部屋の広さ:</strong> {{ post.room_size }}</p>
+                <p><strong>建物構造:</strong> {{ post.structure }}</p>
+                <p><strong>築年数:</strong> {{ post.const_year }}</p>
+                <p><strong>駅まで徒歩:</strong> {{ post.station }}</p>
+                <p><strong>日当たり:</strong> {{ post.sun }}</p>
+                <p><strong>バス:</strong> {{ post.bath }}</p>
+                <p><strong>トイレ:</strong> {{ post.toilet }}</p>
+                <p><strong>バストイレ別:</strong> {{ post.bath_toilet }}</p>
+                <p><strong>バストイレ機能:</strong> {{ post.add_bt }}</p>
+                <p><strong>キッチン:</strong> {{ post.kitchen }}</p>
+                <p><strong>コンロ:</strong> {{ post.conro }}</p>
+                <p><strong>コンロ数:</strong> {{ post.conro_num }}</p>
+                <p><strong>収納:</strong> {{ post.storage }}</p>
+                <p><strong>空調:</strong> {{ post.air_conditioning }}</p>
+                <p><strong>バリアフリー:</strong> {{ post.barrier_free }}</p>
+                <p><strong>快適設備:</strong> {{ post.comfort }}</p>
+                <p><strong>建物特長:</strong> {{ post.building }}</p>
+                <p><strong>屋外設備:</strong> {{ post.outdoor }}</p>
+                <p><strong>エネルギー:</strong> {{ post.energy }}</p>
+                <p><strong>ゴミ捨て場:</strong> {{ post.garbage }}</p>
+                <p><strong>水道:</strong> {{ post.water_supply }}</p>
+            </div>
+            <p class="price">家賃予測価格: {{ post.predict_price }} 円</p>
+            <a class="back-button" href="{% url 'predict' %}">条件を変更</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="overlay">
+        <div class="hero-content">
+            <h2 class="subtitle">AIで未来の住まいを見つけよう</h2>
+            <h1 class="title">Rent Prediction</h1>
+            <div class="button-container">
+                <a href="{% url 'predict' %}" class="btn">今すぐ始める</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div id="predict" class="min-h-screen bg-gray-100 flex items-center justify-center py-10">
+    <div class="card w-full max-w-3xl p-4">
+        <h2 class="all-title text-center text-xl mb-4">家賃を予測する</h2>
+        <form method="post">
+            {% csrf_token %}
+            
+            <!-- Swiperスライダー -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- 物件情報セクション -->
+                    <div class="swiper-slide">
+                        <h3 class="section-title text-center text-lg mb-4">物件情報</h3>
+                        <div class="block bg-gray-50 rounded-lg shadow p-4">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="form-group">
+                                    {{ form.area.label }}
+                                    {{ form.area|add_class:"form-control text-sm" }}
+                                    {{ form.area.errors }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.floor_num.label }}
+                                    {{ form.floor_num|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.all_floor_num.label }}
+                                    {{ form.all_floor_num|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.floor_plan.label }}
+                                    {{ form.floor_plan|add_class:"form-control text-sm" }}
+                                    {{ form.floor_plan.errors }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.room_size.label }}
+                                    {{ form.room_size|add_class:"form-control text-sm" }}畳
+                                    {{ form.room_size.errors }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.structure.label }}
+                                    {{ form.structure|add_class:"form-control text-sm" }}
+                                    {{ form.structure.errors }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.const_year.label }}
+                                    {{ form.const_year|add_class:"form-control text-sm" }}年
+                                    {{ form.const_year.errors }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.station.label }}
+                                    {{ form.station|add_class:"form-control text-sm" }}分
+                                    {{ form.station.errors }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.sun.label }}
+                                    {{ form.sun|add_class:"form-control text-sm" }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- バス＆トイレ・キッチンセクション -->
+                    <div class="swiper-slide">
+                        <h3 class="section-title text-center text-lg mb-4">バス＆トイレ</h3>
+                        <div class="block bg-gray-50 rounded-lg shadow p-4">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="form-group">
+                                    {{ form.bath.label }}
+                                    {{ form.bath|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.toilet.label }}
+                                    {{ form.toilet|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.bath_toilet.label }}
+                                    {{ form.bath_toilet|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.add_bt.label }}
+                                    {{ form.add_bt|add_class:"form-control text-sm" }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <h3 class="section-title text-center text-lg mb-4">キッチン</h3>
+                        <div class="block bg-gray-50 rounded-lg shadow p-4">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="form-group">
+                                    {{ form.kitchen.label }}
+                                    {{ form.kitchen|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.conro.label }}
+                                    {{ form.conro|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.conro_num.label }}
+                                    {{ form.conro_num|add_class:"form-control text-sm" }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <h3 class="section-title text-center text-lg mb-4"></h3>
+                        <div class="block bg-gray-50 rounded-lg shadow p-4">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="form-group">
+                                    {{ form.storage.label }}
+                                    {{ form.storage|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.air_conditioning.label }}
+                                    {{ form.air_conditioning|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.barrier_free.label }}
+                                    {{ form.barrier_free|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.comfort.label }}
+                                    {{ form.comfort|add_class:"form-control text-sm" }}
+                                </div>
+                            </div>
+                            </div>
+                        </div> 
+
+                    <!-- その他の設備セクション -->
+                    <div class="swiper-slide">
+                        <h3 class="section-title text-center text-lg mb-4">その他の設備2</h3>
+                        <div class="block bg-gray-50 rounded-lg shadow p-4">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="form-group">
+                                    {{ form.building.label }}
+                                    {{ form.building|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.outdoor.label }}
+                                    {{ form.outdoor|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.energy.label }}
+                                    {{ form.energy|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.garbage.label }}
+                                    {{ form.garbage|add_class:"form-control text-sm" }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.water_supply.label }}
+                                    {{ form.water_supply|add_class:"form-control text-sm" }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 左右のナビゲーションボタン -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn-primary">予測する</button>
+                <a href="{% url 'home' %}" class="return-link-a"><p class="return-link-p">トップページに戻る</p></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Swiperの初期化 -->
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: false,
+    autoplay: false,
+  });
+</script>
+{% endblock %}
