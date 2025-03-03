@@ -3,3 +3,6 @@ db.sqlite3
 venv/
 .env
 *.pyc
+__pycache__
+build.sh
+render.yaml
